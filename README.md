@@ -7,6 +7,8 @@ Mono is a free and open source project led by Xamarin (formerly by Novell and or
 * [http://en.wikipedia.org/wiki/Mono_(software)](http://en.wikipedia.org/wiki/Mono_(software))
 * [http://www.mono-project.com/](http://www.mono-project.com/)
 
+![logo](https://github.com/friism/docker-mono/raw/master/logo.png)
+
 # How to use this image
 
 This image will run stand-alone Mono console apps. No web server (such as [XSP](http://en.wikipedia.org/wiki/XSP_(software))) is included.
