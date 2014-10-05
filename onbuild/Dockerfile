@@ -1,4 +1,4 @@
-FROM friism/mono:3.8.0
+FROM friism/mono:3.10.0
 MAINTAINER Michael Friis <friism@gmail.com>
 
 RUN mkdir -p /usr/src/app/{source,build}

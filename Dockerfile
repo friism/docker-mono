@@ -1,36 +1,21 @@
-FROM ubuntu:14.04
+FROM debian:wheezy
 MAINTAINER Michael Friis <friism@gmail.com>
 
 RUN apt-get update && apt-get install -y \
-		bzip2 \
 		curl \
-		gcc \
-		g++ \
-		make \
-	&& rm -rf /var/lib/apt/lists/*
+		udev
 
-RUN mkdir /usr/src/mono
-WORKDIR /usr/src/mono
+ENV MONO_VERSION 3.10.0
 
-ENV MONO_VERSION 3.8.0
+RUN curl http://download.mono-project.com/repo/xamarin.gpg -o xamarin.gpg \
+	&& apt-key add xamarin.gpg \
+	&& echo "deb http://download.mono-project.com/repo/debian wheezy main" > /etc/apt/sources.list.d/mono-xamarin.list \
+	&& apt-get update \
+	&& apt-get install -y mono-devel=$MONO_VERSION-0xamarin1
 
-RUN curl -SL "http://download.mono-project.com/sources/mono/mono-$MONO_VERSION.tar.bz2" \
-	| tar -xj --strip-components=1
-RUN ./configure \
-		--enable-minimal=aot,profiler,debug,logging \
-		--disable-boehm \
-		--disable-libraries \
-		--disable-moonlight \
-		--disable-nls \
-		--with-mcs-docs=no \
-	&& make monolite_url=http://storage.bos.xamarin.com/mono-dist-master/latest/monolite-111-latest.tar.gz get-monolite-latest \
-	&& make EXTERNAL_MCS="{$PWD}/mcs/class/lib/monolite/gmcs.exe" \
-	&& make install \
-	&& make clean
-RUN rm -rf /usr/src/mono
+RUN rm -rf /var/lib/apt/lists/*
 
 RUN mozroots --import --sync --quiet
 
-WORKDIR /
 CMD ["csharp"]
 
