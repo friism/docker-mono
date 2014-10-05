@@ -1,4 +1,4 @@
-FROM mono:3.8.0
+FROM friism/docker-mono:3.8.0
 
 RUN mkdir -p /usr/src/app/{source,build}
 WORKDIR /usr/src/app/source
