@@ -1,5 +1,8 @@
 # Supported tags and `Dockerfile` links
 
+- [`latest` (*Dockerfile*)](https://github.com/friism/docker-mono/blob/master/Dockerfile)
+- [`onbuild` (*onbuild/Dockerfile*)](https://github.com/friism/docker-mono/blob/master/onbuild/Dockerfile)
+
 # What is Mono
 
 Mono is a free and open source project led by Xamarin (formerly by Novell and originally by Ximian) to create an Ecma standard-compliant, .NET Framework-compatible set of tools including, among others, a C# compiler and a Common Language Runtime.
