@@ -1,4 +1,6 @@
 FROM ubuntu:14.04
+MAINTAINER Michael Friis <friism@gmail.com>
+
 RUN apt-get update && apt-get install -y \
 		bzip2 \
 		curl \

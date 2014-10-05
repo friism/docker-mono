@@ -1,4 +1,5 @@
 FROM friism/mono:3.8.0
+MAINTAINER Michael Friis <friism@gmail.com>
 
 RUN mkdir -p /usr/src/app/{source,build}
 WORKDIR /usr/src/app/source
